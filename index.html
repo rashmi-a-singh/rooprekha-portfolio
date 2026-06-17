@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RoopRekha | Product Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #050505;
+            --text-light: #f5f5f5;
+            --text-muted: #888888;
+            --border-color: #222222;
+            --accent-glow: radial-gradient(circle, rgba(217,70,239,0.15) 0%, rgba(5,5,5,0) 60%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover { color: var(--text-light); }
+
+        .btn-outline {
+            border: 1px solid var(--text-light);
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: var(--text-light);
+            color: var(--bg-dark);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 5%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: var(--accent-glow);
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 8vw, 10rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 3rem;
+        }
+
+        /* --- ABOUT / PROBLEM SECTION --- */
+        .section-container {
+            padding: 8rem 5%;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .section-title {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .headline-large {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 2rem;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .tag {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* --- PIPELINE (PORTFOLIO GRID) --- */
+        .pipeline-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            background: #0a0a0a;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+        }
+
+        .card-number {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- ROADMAP / PROCESS --- */
+        .process-list {
+            list-style: none;
+            margin-top: 4rem;
+        }
+
+        .process-item {
+            display: flex;
+            align-items: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .process-num {
+            font-size: 4rem;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-muted);
+            margin-right: 4rem;
+            width: 100px;
+        }
+
+        .process-text h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* --- FOOTER CTA --- */
+        .footer-cta {
+            padding: 10rem 5%;
+            text-align: center;
+        }
+
+        .footer-cta h2 {
+            font-size: clamp(3rem, 6vw, 7rem);
+            font-weight: 900;
+            letter-spacing: -2px;
+            margin-bottom: 3rem;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .pipeline-grid { grid-template-columns: 1fr; }
+            .process-item { flex-direction: column; align-items: flex-start; }
+            .process-num { margin-bottom: 1rem; }
+            .footer-info { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">RoopRekha</div>
+        <div class="nav-links">
+            <a href="#problem">The Gap</a>
+            <a href="#pipeline">Pipeline</a>
+            <a href="#roadmap">Roadmap</a>
+        </div>
+        <button class="btn-outline">Let's Talk</button>
+    </nav>
+
+    <header class="hero">
+        <div class="section-title">Idea Stage · TRL 1-2</div>
+        <h1>ROOPREKHA</h1>
+        <p>Line becomes Form. Sketch becomes Structure. Bridging the gap between artistic intuition and parameter-heavy digital manufacturing.</p>
+        <button class="btn-outline" style="margin-top: 2rem;">Explore The Pipeline</button>
+    </header>
+
+    <section id="problem" class="section-container">
+        <div class="about-grid">
+            <div>
+                <div class="section-title">The Bottleneck</div>
+                <h2 class="headline-large">The Manual Modeling Trap.</h2>
+            </div>
+            <div>
+                <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem;">
+                    Manual jewellery designers think in sketches—intuitive, aesthetic, unconstrained. CAD designers build in parameters—wall thicknesses, prong tolerances, casting rules.
+                </p>
+                <p style="font-size: 1.2rem; color: var(--text-muted);">
+                    The handoff is slow, lossy, and entirely dependent on scarce specialists who must mentally translate an artistic impression into manufacturable geometry. We eliminate this friction.
+                </p>
+                <div class="tags">
+                    <span class="tag">Computer Vision</span>
+                    <span class="tag">MatrixGold</span>
+                    <span class="tag">Rhino 3D</span>
+                    <span class="tag">Manufacturing Constraints</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pipeline" class="section-container">
+        <div class="section-title">Intelligent Architecture</div>
+        <h2 class="headline-large">Sketch-to-CAD,<br>Jewellery-Native.</h2>
+        
+        <div class="pipeline-grid">
+            <div class="card">
+                <div class="card-number">01</div>
+                <h3>Sketch Input</h3>
+                <p>Accepts raw 2D concepts via photo, scan, or digital drawing—exactly what designers already produce.</p>
+            </div>
+            <div class="card">
+                <div class="card-number">02</div>
+                <h3>CV Extraction</h3>
+                <p>Advanced deep-tech algorithms map depth, trace curves, and extract precise geometric proportions.</p>
+            </div>
+            <div class="card">
+                <div class="card-number">03</div>
+                <h3>Constraint Layer</h3>
+                <p>Automatically enforces real-world manufacturing rules, casting minimums, and stone-seat tolerances.</p>
+            </div>
+            <div class="card">
+                <div class="card-number">04</div>
+                <h3>Native Output</h3>
+                <p>Generates production-ready .3dm files perfectly compatible with existing MatrixGold and Rhino workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="roadmap" class="section-container">
+        <div class="section-title">Execution</div>
+        <h2 class="headline-large">6-Month Roadmap.</h2>
+
+        <ul class="process-list">
+            <li class="process-item">
+                <div class="process-num">01</div>
+                <div class="process-text">
+                    <h3>Dataset Curation</h3>
+                    <p>Months 1-2: Gathering specialized sketch-CAD dataset pairs via partnership with JK Diamonds Institute.</p>
+                </div>
+            </li>
+            <li class="process-item">
+                <div class="process-num">02</div>
+                <div class="process-text">
+                    <h3>Proof of Concept</h3>
+                    <p>Months 3-4: Architecting the core pipeline focusing on geometry extraction and constraint enforcement.</p>
+                </div>
+            </li>
+            <li class="process-item">
+                <div class="process-num">03</div>
+                <div class="process-text">
+                    <h3>Industry Validation</h3>
+                    <p>Months 5-6: Direct validation with manufacturing partners (HK Diamonds) and final POC demonstration.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <footer class="footer-cta">
+        <div class="section-title">Get In Touch</div>
+        <h2>GOT A PROJECT?</h2>
+        <div class="footer-info">
+            <span>Rashmi Singh</span>
+            <span>468.rashmi.singh@gmail.com</span>
+            <span>+91 98925 84286</span>
+        </div>
+    </footer>
+
+</body>
+</html>
