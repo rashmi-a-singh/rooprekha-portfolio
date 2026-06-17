@@ -24,6 +24,10 @@
             font-family: 'Inter', sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--bg-dark);
             color: var(--text-light);
@@ -74,6 +78,8 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .btn-outline:hover {
@@ -273,7 +279,7 @@
             <a href="#pipeline">Pipeline</a>
             <a href="#roadmap">Roadmap</a>
         </div>
-        <button class="btn-outline">Let's Talk</button>
+        <a href="#contact" class="btn-outline">Let's Talk</a>
     </nav>
 
     <!-- HERO -->
@@ -281,7 +287,7 @@
         <div class="section-title">Idea Stage · TRL 1-2</div>
         <h1>ROOPREKHA</h1>
         <p>Line becomes Form. Sketch becomes Structure. Bridging the gap between artistic intuition and parameter-heavy digital manufacturing.</p>
-        <button class="btn-outline" style="margin-top: 2rem;">Explore The Pipeline</button>
+        <a href="#pipeline" class="btn-outline" style="margin-top: 2rem;">Explore The Pipeline</a>
     </header>
 
     <!-- THE PROBLEM (ABOUT) -->
@@ -368,7 +374,7 @@
     </section>
 
     <!-- FOOTER CTA -->
-    <footer class="footer-cta">
+    <footer id="contact" class="footer-cta">
         <div class="section-title">Get In Touch</div>
         <h2>GOT A PROJECT?</h2>
         <div class="footer-info">
